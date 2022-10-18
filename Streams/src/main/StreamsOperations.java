@@ -23,13 +23,20 @@ public class StreamsOperations {
                 .filter(n-> n.startsWith("1"))
                 .forEach(System.out::println);
 
-
         System.out.println("=================================");
-        System.out.println("Duplicates Using Set and Filter");
+        System.out.println("Distinct Numbers");
         List<Integer> numberDuplicate = Arrays.asList(1,2,34,1,16,2,56,56,14,178,16);
         HashSet<Integer> set = new HashSet<>();
 
         numberDuplicate.stream()
+                .distinct()
+                .forEach(System.out::println);
+
+        System.out.println("=================================");
+        System.out.println("Duplicates Using Set and Filter");
+        List<Integer> numberDuplicateDistinct = Arrays.asList(1,2,34,1,16,2,56,56,14,178,16);
+
+        numberDuplicateDistinct.stream()
                 .filter(n-> !set.add(n))
                 .forEach(System.out::println);
 
